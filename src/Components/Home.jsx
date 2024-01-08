@@ -1,8 +1,7 @@
-
 function Home() {
   return (
     <>
-      <div className="m-a w-5/12 text-center m-auto mt-10 bg-sky-500 p-7">
+      <div className="m-a w-5/12 text-center m-auto mt-10 bg-sky-500 p-7 max-sm:w-3/4 max-md:w-3/4 max-lg:w-3/4">
         <h1 className="text-4xl font-bold">Clothes</h1>
 
         <div className="mt-5 text-white text-lg text-left">
