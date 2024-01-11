@@ -1,33 +1,39 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Home from "../Components/Home"
-import Shop from "../Components/Shop"
-import Carts from "../Components/Carts"
+import { createContext, useState  } from "react";
+// Components
+import Home from "../Components/MainPages/Home";
+import Shop from "../Components/MainPages/Shop";
+import Carts from "../Components/Carts/Carts";
 import ErrorPage from "../Error/ErrorPage";
 import NavBar from "../Components/NavBar";
-import { useState } from "react";
 
-const AppLayout = () => { 
-  const [singleCard, setSingleCard] = useState(null);
-  const [cards, setcards] = useState([]);
+// use context
+export const CardsContext = createContext(null);
 
 
-  return(
+const AppLayout = () => {
+  return (
     <>
-    <NavBar />
-    <Outlet context={[singleCard,setSingleCard,cards,setcards]}/>
+      <NavBar />
+      <Outlet />
     </>
-  )
- }
+  );
+};
+
 
 const Router = () => {
-
+  const [cards, setcards] = useState([]);
 
   const router = createBrowserRouter([
     {
-      path:"/",
-      element: <AppLayout />,
+      path: "/",
+      element: (
+          <CardsContext.Provider value={{ cards, setcards}}>
+                  <AppLayout />
+          </CardsContext.Provider>
+      ),
       errorElement: <ErrorPage />,
-      children:[
+      children: [
         {
           path: "/",
           element: <Home />,
@@ -40,15 +46,11 @@ const Router = () => {
           path: "carts",
           element: <Carts />,
         },
-      ]
+      ],
     },
-
   ]);
 
-  return (
-      <RouterProvider router={router} />
-
-  )
+  return <RouterProvider router={router} />;
 };
 
 export default Router;

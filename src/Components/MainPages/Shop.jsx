@@ -1,10 +1,10 @@
-import CardShop from "./CardShop";
-import { useEffect, useState } from "react";
-import Loading from "./Loading";
-import { useOutletContext } from "react-router-dom";
+import CardShop from "../CardShop";
+import { useContext, useEffect, useState } from "react";
+import Loading from "../Loading";
+import { CardsContext } from "../../Router/Router";
 
 function Shop() {
-  const [, setSingleCard, cards, setcards] = useOutletContext();
+  const { cards, setcards } = useContext(CardsContext);
 
   const [data, setData] = useState(null);
   const [loading, setloading] = useState(false);
@@ -22,7 +22,6 @@ function Shop() {
   const handleClick = (e) => {
     setcards([...cards, e]);
   };
-  cards && setSingleCard(cards);
 
   return loading ? (
     <>
