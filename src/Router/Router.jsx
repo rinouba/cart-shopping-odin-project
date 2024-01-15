@@ -28,7 +28,7 @@ const Router = () => {
     {
       path: "/",
       element: (
-          <CardsContext.Provider value={{ cards, setcards}}>
+          <CardsContext.Provider value={{ cards, setcards }}>
                   <AppLayout />
           </CardsContext.Provider>
       ),

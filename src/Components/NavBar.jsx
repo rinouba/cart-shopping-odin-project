@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { createContext } from "react";
+import {CardsContext} from '../Router/Router'
+import { useContext } from "react";
 
 function NavBar() {
-  const CardContext = createContext(null);
+
+  const {cards} = useContext(CardsContext)
 
   return (
     <nav className="p-5 bg-sky-800">
@@ -19,14 +21,12 @@ function NavBar() {
         >
           Shop
         </NavLink>
-        <CardContext.Provider value="test">
           <NavLink
             className="max-md:mt-5 me-5 border-solid border-2 border-sky-100 px-10 text-lg font-bold delay-150 duration-300 ease-in-out text-white hover:bg-sky-300 hover:text-black hover:scale-110 active:scale-110"
             to="carts"
           >
-            Carts
+            Carts {cards.length}
           </NavLink>
-        </CardContext.Provider>
       </div>
     </nav>
   );

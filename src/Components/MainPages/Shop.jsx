@@ -4,7 +4,7 @@ import Loading from "../Loading";
 import { CardsContext } from "../../Router/Router";
 
 function Shop() {
-  const { cards, setcards } = useContext(CardsContext);
+  const { cards , setcards  } = useContext(CardsContext);
 
   const [data, setData] = useState(null);
   const [loading, setloading] = useState(false);
@@ -13,7 +13,8 @@ function Shop() {
     fetch("https://fakestoreapi.com/products?limit=10")
       .then((res) => res.json())
       .then((json) => {
-        setData(json);
+        const cardsWithQuantity = json.map((card) => ({ ...card, quantity: 1 }));
+        setData(cardsWithQuantity);
         setloading(true);
       })
       .catch((err) => console.log(err));
