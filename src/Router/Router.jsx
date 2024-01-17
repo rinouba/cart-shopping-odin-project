@@ -2,10 +2,11 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { createContext, useState  } from "react";
 // Components
 import Home from "../Components/MainPages/Home";
-import Shop from "../Components/MainPages/Shop";
+import Shop from "../Components/Shop/Shop";
 import Carts from "../Components/Carts/Carts";
 import ErrorPage from "../Error/ErrorPage";
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
 
 // use context
 export const CardsContext = createContext(null);
@@ -16,6 +17,7 @@ const AppLayout = () => {
     <>
       <NavBar />
       <Outlet />
+      <Footer />
     </>
   );
 };

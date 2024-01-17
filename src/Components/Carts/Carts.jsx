@@ -33,7 +33,7 @@ function Carts() {
   };
 
   return cards.length ? (
-    <div className="w-7/12 m-auto mt-10 rounded-l-md max-md:w-5/6">
+    <div className="w-7/12 m-auto my-24 rounded-l-md max-md:w-5/6 md:my-16">
       {cards.map(({ id, image, title, price, quantity }) => {
         if (!uniqueIds.has(id)) {
           uniqueIds.add(id);
@@ -44,8 +44,8 @@ function Carts() {
               image={image}
               title={title}
               price={price}
-              removeProduct={removeProduct}
               quantity={quantity}
+              removeProduct={removeProduct}
               incrementQuantity={incrementQuantity}
               decrementQuantity={decrementQuantity}
             />
@@ -56,10 +56,10 @@ function Carts() {
       <TotalPrice />
     </div>
   ) : (
-    <div className="text-center text-white text-2xl mt-10">
+    <div className="w-full h-screen text-center text-black text-2xl mt-10 font-bold">
       There is No Carts Here ... <br />
-      Add Cart From Here{" "}
-      <Link to="/shop" className="underline">
+      Add Cart From Here {" > "}
+      <Link to="/shop" className="underline text-white">
         Shop!
       </Link>
     </div>

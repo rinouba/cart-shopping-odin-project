@@ -1,10 +1,10 @@
 function Home() {
   return (
     <>
-      <div className="m-a w-5/12 text-center m-auto mt-10 bg-sky-500 p-7 max-sm:w-3/4 max-md:w-3/4 max-lg:w-3/4">
-        <h1 className="text-4xl font-bold">Clothes</h1>
+      <div className="m-a w-6/12 text-center m-auto mt-10 bg-white p-7 max-sm:w-3/4 max-md:w-3/4 max-lg:w-3/4 max-sm:mb-24">
+        <h1 className="text-4xl font-bold text-[#4E5DE2]">Clothes</h1>
 
-        <div className="mt-5 text-white text-lg text-left">
+        <div className="mt-5 text-black text-lg text-left">
           Welcome to (Fake), where style meets comfort. Our carefully curated
           collection of clothing is designed to elevate your fashion game. From
           casual chic to elegant ensembles, we offer a diverse range of
